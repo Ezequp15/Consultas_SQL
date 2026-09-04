@@ -1,0 +1,52 @@
+--IN: USADO NO WHERE
+-- USADO EM LISTAS PARA TER UM VALOR DE UMA LISTA
+
+-- COLUNA 1 IN (Valor1, Valor2)
+
+SELECT *
+FROM Person.Person
+WHERE BusinessEntityID IN (2, 7, 13)
+
+--NOT: ELE REALIZA O OPOSTO DO SEU COMANDO
+
+--LIKE: Utilizado para " achar algo como..."
+
+
+SELECT *
+FROM Person.Person
+WHERE FirstName like '%ri'  -- Essa Strings é utilziada para procurar o que vem antes ou depois com onome
+
+
+-- DESAFIO: Utilizando IN, LIKE, BETWEEN
+
+--QUANTOS PRODUTOS TEMOS CADASTRADOS NO SISTEMA QUE CUSTAM MAIS DE 1500 ?
+
+SELECT COUNT(*)
+FROM Production.Product
+WHERE ListPrice not between 0 and 1500
+
+--QUANTAS PESSOAS TEMOS QUE INICIA COM A LETRA P ?
+
+SELECT COUNT(*)
+FROM Person.Person
+WHERE LastName LIKE 'p%'
+
+-- EM QUANTAS CIDADES UNCIAS ESTAO CADASTRADOS NOSSO CLIENTES ?
+
+SELECT COUNT(DISTINCT city)
+FROM Person.Address;
+
+SELECT DISTINCT city
+FROM Person.Address;
+
+-- QUANTOS PRODUTOS VERMELHOS TEM O PREÇO ENTRE 500 e 1000 DOLARES ?
+
+SELECT *
+FROM Production.Product
+WHERE Color IN ('black', 'silver')  AND ListPrice BETWEEN 500 AND 1000
+
+-- QUANTOS PRODUTOS CADASTRADOS TEM A PALAVRA ROAD NO NOME DELES ?
+
+SELECT COUNT(*)
+FROM Production.Product
+WHERE Name like '%road%'
